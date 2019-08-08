@@ -23,7 +23,7 @@ function generateSlug(title) {
 }
 
 Page.beforeValidate((page) => {
-    page.title = generateSlug(page.title);
+    page.slug = generateSlug(page.title);
 });
 
 module.exports = {
