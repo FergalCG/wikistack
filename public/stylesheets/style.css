@@ -6,3 +6,17 @@ body {
 a {
     color: #00B7FF;
 }
+
+label {
+    float: left;
+    width: 60px;
+
+  }
+
+  input {
+    display: block;
+    width: calc(100% - 10px);
+    padding:4px 2px;
+    margin: 0 0 10px 0;
+    border:solid 1px #aacfe4;
+  }
