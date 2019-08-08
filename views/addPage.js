@@ -1,7 +1,7 @@
 const html = require("html-template-tag");
 const layout = require("./layout");
 
-module.exports = () => layout(html`
+module.exports = () => layout(html `
   <h3>Add a Page</h3>
   <hr>
   <form method="POST" action="/wiki/">
@@ -22,10 +22,13 @@ module.exports = () => layout(html`
     </div> -->
 
     <label for="content">Content</label>
-    <input type="text" name="content"/>
+    <textarea type="text" name="content"></textarea>
 
-    <label for="status">Page Status</label>
-    <input type="text" name="status"/>
+    <label for="status">Status</label></br></br>
+    <select name="status">
+      <option value="open">Open</option>
+      <option value="closed">Closed</option>
+    </select>
 
 
     <div class="col-sm-offset-2 col-sm-10">
