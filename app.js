@@ -4,12 +4,16 @@ const morgan = require("morgan");
 const wikiFunctions = require("./views/index");
 const models = require("./models");
 const db = models.db
+const wikiRouter = require("./routes/wiki");
+const userRouter = require("./routes/user");
 
-const port = process.env.PORT || 1337
+const port = process.env.PORT || 3000
 
 app.use(morgan('dev'));
 app.use(express.static(__dirname + "/public"));
 app.use(express.urlencoded({ extended: false }));
+app.use('/wiki', wikiRouter);
+app.use('/user', userRouter);
 
 db.authenticate().
 then(() => {
@@ -17,8 +21,9 @@ then(() => {
 })
 
 app.get("/", (req, res, next) => {
-    console.log("hello world");
-    res.send(wikiFunctions.main());
+    res.redirect("/wiki");
+    // res.send(wikiFunctions.main());
+
 });
 
 const dbSync = async() => {
